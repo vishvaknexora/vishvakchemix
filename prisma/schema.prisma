@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Chemical {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  icon         String   @default("science") // Material Symbols icon name
+  category     String   @default("Specialty Chemicals")
+  casNumber    String? // CAS Registry Number
+  purity       String? // e.g. "99.9%"
+  applications String? // Comma-separated applications
+  specLink     String? // Link to specifications
+  published    Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model SiteConfig {
+  id           String   @id @default("main")
+  heroTitle    String   @default("Advanced Chemical Solutions for Global Industries")
+  heroSubtitle String   @default("Based in Ahmedabad, providing high-purity chemicals with global logistics and 20+ years of expertise.")
+  phone        String?
+  email        String?
+  address      String   @default("Ahmedabad, Gujarat, India")
+  updatedAt    DateTime @updatedAt
+}
