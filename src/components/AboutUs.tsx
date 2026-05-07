@@ -14,77 +14,147 @@ const coreValues = [
 
 export default function AboutUs() {
   return (
-    <section id="about" className="py-24 px-6 md:px-8 bg-white border-b border-surface-variant">
-      <div className="max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Mission & Vision */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-block bg-accent/10 text-accent px-4 py-1.5 rounded-sm text-xs font-bold tracking-widest uppercase mb-4">
-              About Us
-            </div>
-            <h2 className="text-3xl md:text-5xl text-primary font-black mb-8 tracking-tight leading-tight">
-              A Global Leader in Chemical Distribution
-            </h2>
-            <p className="text-on-surface-variant text-lg leading-relaxed mb-8">
-              VISHVAK CHEMIX is a trusted global leader in the trade and distribution of high-quality chemicals. With decades of experience in sourcing, manufacturing, and supplying a broad spectrum of chemical products.
-            </p>
+    <section id="about" className="py-24 lg:py-32 px-6 md:px-8 bg-surface-lowest relative overflow-hidden scroll-mt-24 lg:scroll-mt-32">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.02]">
+        <div className="absolute top-1/4 -left-20 w-96 h-96 border-[40px] border-primary rounded-full" />
+        <div className="absolute bottom-1/4 -right-20 w-80 h-80 border-[30px] border-accent rounded-full" />
+      </div>
 
-            <div className="space-y-8">
-              <div className="bg-surface-low p-8 rounded-sm border-l-4 border-accent">
-                <h3 className="text-xl font-bold text-primary mb-3 flex items-center gap-2">
-                  <Target className="text-accent" /> Our Mission
-                </h3>
-                <p className="text-on-surface-variant leading-relaxed">
-                  To provide a wide range of high-quality chemicals and chemical solutions to industries worldwide, ensuring timely delivery, strict regulatory compliance, and unmatched customer satisfaction.
-                </p>
+      <div className="max-w-[1440px] mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          
+          {/* LEFT: Context & Purpose (5 cols) */}
+          <div className="lg:col-span-5 lg:sticky lg:top-40">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-[2px] bg-accent" />
+                <span className="text-accent text-xs font-black uppercase tracking-[0.4em]">Corporate Profile</span>
               </div>
-              <div className="bg-surface-low p-8 rounded-sm border-l-4 border-secondary">
-                <h3 className="text-xl font-bold text-primary mb-3 flex items-center gap-2">
-                  <Zap className="text-secondary" /> Our Vision
-                </h3>
-                <p className="text-on-surface-variant leading-relaxed">
-                  To be a global leader in chemical trading, known for our ethical business practices, environmental responsibility, and dedication to enhancing the value we bring to customers and stakeholders alike.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+              
+              <h2 className="text-4xl md:text-5xl lg:text-6xl text-primary font-black mb-8 tracking-tighter leading-[1.1] lg:leading-[0.95]">
+                Redefining the <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Chemical Horizon.</span>
+              </h2>
+              
+              <p className="text-on-surface-variant text-lg leading-relaxed mb-12 font-medium">
+                VISHVAK CHEMIX is a trusted global leader in high-purity chemical distribution. With decades of manufacturing expertise, we bridge the gap between complex science and industrial application.
+              </p>
 
-          {/* Core Values Grid & Image */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col"
-          >
-            <div className="relative h-64 md:h-80 w-full rounded-xl overflow-hidden mb-12 shadow-2xl border border-surface-variant">
-              <Image 
-                src="/chemical_plant.png" 
-                alt="Vishvakchemix Industrial Plant" 
-                fill 
-                className="object-cover hover:scale-105 transition-transform duration-700" 
-              />
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Mission & Vision - Stylized Overlapping Cards */}
+              <div className="relative mt-12 lg:mt-20">
+                {/* Mission Card with Industrial Background Reveal */}
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="bg-white p-8 lg:p-10 rounded-2xl shadow-card relative z-20 border border-surface-variant mb-6 group overflow-hidden"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700">
+                    <Image src="/laboratory.png" alt="Lab" fill className="object-cover scale-150 group-hover:scale-100 transition-transform duration-1000" />
+                  </div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:bg-accent/10 transition-colors" />
+                  <div className="flex flex-col sm:flex-row items-start gap-6 relative z-10">
+                    <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                      <Target className="text-accent w-8 h-8" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black text-primary mb-3 uppercase tracking-wider italic">Our Mission</h3>
+                      <p className="text-on-surface-variant text-sm leading-relaxed">
+                        To deliver high-purity chemical solutions worldwide with uncompromising precision, regulatory excellence, and customer-first integrity.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Vision Card with Cinematic Industrial Background */}
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="bg-primary p-8 lg:p-10 rounded-2xl shadow-2xl relative z-10 lg:-mt-12 lg:ml-12 border border-white/10 group overflow-hidden min-h-[220px]"
+                >
+                  {/* Background Image */}
+                  <Image 
+                    src="/chemical_plant.png" 
+                    alt="Plant" 
+                    fill 
+                    className="object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700 group-hover:scale-110 transition-transform duration-[2000ms]" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/60 to-transparent" />
+                  
+                  <div className="flex flex-col sm:flex-row items-start gap-6 relative z-10 text-white">
+                    <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center shrink-0">
+                      <Zap className="text-accent w-8 h-8" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black text-white mb-3 uppercase tracking-wider italic">Our Vision</h3>
+                      <p className="text-white/80 text-sm leading-relaxed">
+                        To be the global benchmark for ethical chemical distribution, pioneering sustainable practices and creating shared value for our partners worldwide.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT: Values Grid (7 cols) */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+              {/* Background Glow for the Grid */}
+              <div className="absolute inset-0 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
+
               {coreValues.map((value, idx) => (
-              <div key={idx} className="bg-surface-low p-6 rounded-sm border border-surface-variant hover:border-accent hover:shadow-lg transition-all duration-300 group">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:bg-accent transition-colors">
-                  <value.icon className="text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h4 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">{value.title}</h4>
-                <p className="text-sm text-on-surface-variant leading-relaxed">{value.desc}</p>
-              </div>
-            ))}
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="group relative"
+                >
+                  {/* Decorative Border Glow */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-br from-accent via-secondary to-primary opacity-0 group-hover:opacity-30 rounded-[2rem] blur transition-opacity duration-500" />
+                  
+                  <div className="relative bg-white/90 backdrop-blur-md p-8 lg:p-10 rounded-[2rem] border border-surface-variant h-full flex flex-col items-start shadow-sm transition-all duration-300 group-hover:shadow-2xl">
+                    {/* Index Number */}
+                    <span className="text-6xl lg:text-[8rem] font-black text-surface-low/10 absolute top-0 right-4 leading-none select-none group-hover:text-accent/5 transition-colors">
+                      {idx + 1}
+                    </span>
+
+                    <div className="w-16 h-16 bg-surface-low rounded-2xl flex items-center justify-center mb-8 border border-surface-variant group-hover:bg-accent group-hover:border-accent transition-all duration-300">
+                      <value.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                    </div>
+
+                    <div className="relative z-10">
+                      <h4 className="text-xl lg:text-2xl font-black text-primary mb-4 tracking-tighter uppercase group-hover:text-accent transition-colors">
+                        {value.title}
+                      </h4>
+                      <p className="text-on-surface-variant text-base leading-relaxed font-medium">
+                        {value.desc}
+                      </p>
+                    </div>
+
+                    {/* Progress indicator decoration */}
+                    <div className="mt-10 w-full h-1 bg-surface-low rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${(idx + 1) * 20}%` }}
+                        transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+                        className="h-full bg-accent"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
